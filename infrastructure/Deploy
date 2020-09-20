@@ -1,0 +1,25 @@
+pipeline {
+  agent any
+  stages {
+    stage('Install') {
+      steps {
+        sh 'npm install'
+      }
+    }
+    stage('Test') {
+      steps {
+        echo 'No tests'
+      }
+    }
+    stage('Build') {
+      steps {
+        sh 'npm run build'
+      }
+    }
+    stage('Start') {
+      steps {
+        sh 'NODE_ENV=production npm run start &>/dev/null'
+      }
+    }
+  }
+}
