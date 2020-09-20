@@ -18,6 +18,7 @@ pipeline {
     }
     stage('Start') {
       steps {
+        sh 'docker-compose up &'
         sh 'NODE_ENV=production npm run start &>/dev/null'
       }
     }
